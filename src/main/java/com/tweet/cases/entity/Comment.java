@@ -60,6 +60,12 @@ public class Comment {
 	public void setCommentData(String commentData) {
 		this.commentData = commentData;
 	}
+
+	@Override
+	public String toString() {
+		return "Comment [commentId=" + commentId + ", userId=" + userId + ", tweet=" + tweet + ", commentData="
+				+ commentData + "]";
+	}
 	
 	
 }
