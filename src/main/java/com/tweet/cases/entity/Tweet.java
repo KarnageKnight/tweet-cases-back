@@ -6,13 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 
 @Entity
 @Table(name="TWEETS")
 public class Tweet {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "tweetGen")
+	@TableGenerator(name="tweetGen",initialValue=1)
 	@Column(name = "tweet_id")
 	private Integer tweetId;
 	
