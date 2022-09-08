@@ -15,8 +15,9 @@ import javax.persistence.TableGenerator;
 @Table(name="COMMENTS")
 public class Comment {
 	
+	//Used a generator to start value of ID with 2, since ID 1 is already initialize using sql script
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "commentGen")
+	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "commentGen") 
 	@TableGenerator(name="commentGen",initialValue=1)
 	@Column(name = "comment_id")
 	private Integer commentId;
@@ -24,6 +25,8 @@ public class Comment {
 	@Column(name = "user_id")
 	private Integer userId;
 	
+	//Many to One relation with tweet, since one tweet can have many comments, 
+	//fetch type is set as eager as we need to return a tweet object for posting a comment 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "tweet_id")
 	private Tweet tweet;

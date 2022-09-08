@@ -12,6 +12,7 @@ import javax.persistence.TableGenerator;
 @Table(name="USERS")
 public class User {
 
+	//Used a generator to start value of ID with 2, since ID 1 is already initialize using sql script
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "userGen")
 	@TableGenerator(name="userGen",initialValue=1)

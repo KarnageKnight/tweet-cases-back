@@ -12,12 +12,15 @@ import javax.persistence.TableGenerator;
 @Table(name="TWEETS")
 public class Tweet {
 	
+	//Used a generator to start value of ID with 2, since ID 1 is already initialize using sql script
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "tweetGen")
 	@TableGenerator(name="tweetGen",initialValue=1)
 	@Column(name = "tweet_id")
 	private Integer tweetId;
 	
+	//Did not create Many to One relation here since login is not need and fully realised and 
+	//sending user Object in all tweet related calls to backend would be extra effort(Time constraint) 
 	@Column(name = "user_id")
 	private Integer userId;
 	
